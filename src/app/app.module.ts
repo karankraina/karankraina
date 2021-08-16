@@ -11,6 +11,7 @@ import { ListComponent } from './components/homepage/list/list.component';
 import { ListItemComponent } from './components/homepage/list/list-item/list-item.component';
 import { FormsModule } from "@angular/forms";
 import { BasicComponent } from './components/basic/basic.component';
+import { TechGridComponent } from './components/basic/tech-grid/tech-grid.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BasicComponent } from './components/basic/basic.component';
     ContactComponent,
     ListComponent,
     ListItemComponent,
-    BasicComponent
+    BasicComponent,
+    TechGridComponent,
   ],
   imports: [
     BrowserModule,

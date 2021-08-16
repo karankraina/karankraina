@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'karankraina';
-  appMode: string = 'basic';
+  appMode: string = 'resume';
 
   onAppModeChange(newMode){
     console.log('App Mode has been changed!', newMode);
