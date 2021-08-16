@@ -6,6 +6,12 @@
     align-items: center;
 }
 
+.tech-item img {
+    margin-right: 5px;
+    max-height: 20px;
+}
+
 .tech-wrapper {
-    padding: 1px 2px;
+    padding: 1px 1px;
+    min-width: max-content;
 }
