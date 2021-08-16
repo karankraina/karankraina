@@ -13,25 +13,10 @@
     text-decoration-color: rgb(47, 45, 179) !important;
 }
 
-.highlight {
-    position: relative;
-    margin-bottom: 20px;
-}
 
-.highlight::before {
-    content: '';
-    position: absolute;
-    min-width: 100%;
-    display: inline-block;
-    z-index: -10;
-    left: -15px;
-    background: #FDED06;
-    min-width: calc(100% + 30px);
-    min-height: 100%;
-    transform: rotate(-3deg);
-}
 
 .head-title {
     margin-top: 10px;
-    margin-bottom: 15px;;
+    margin-bottom: 15px;
+    ;
 }

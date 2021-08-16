@@ -1,3 +1,3 @@
 <app-header (appMode)="onAppModeChange($event)"></app-header>
 <router-outlet *ngIf="appMode === 'cool'; else basicMode"></router-outlet>
-<app-basic #basicMode></app-basic>
+<ng-template #basicMode><app-basic></app-basic></ng-template>

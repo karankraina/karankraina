@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Highlighter */
+
+.highlight {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.highlight::before {
+    content: '';
+    position: absolute;
+    min-width: 100%;
+    display: inline-block;
+    z-index: -10;
+    left: -15px;
+    background: rgb(245, 231, 18);
+    background: linear-gradient(90deg, rgba(245, 231, 18, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    min-width: calc(100% + 30px);
+    min-height: 100%;
+    transform: rotate(-3deg);
+}
