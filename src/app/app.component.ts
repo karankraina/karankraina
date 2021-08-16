@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'karankraina';
+  title: string = 'karankraina';
+  appMode: string = 'basic';
+
+  onAppModeChange(newMode){
+    console.log('App Mode has been changed!', newMode);
+    this.appMode = newMode;
+  }
 }

@@ -1,0 +1,13 @@
+.brand-title {
+    margin: auto;
+}
+
+.brand-title h1 {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.brand-title p {
+    font-weight: bold;
+    font-style: italic;
+}

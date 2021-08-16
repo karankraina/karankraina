@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="brand-text d-flex flex-column align-items-center">
+        <img class="img-fluid" width="150px" src="assets/image.svg" alt="{{resumeData.name}}">
+        <h1>{{resumeData.name}}</h1>
+        <p>{{resumeData.role}}</p>
+    </div>
+    <hr />
+    <h4 class="head-title text-center underline"><span class="highlight">Profile</span></h4>
+    <p class="paragraph-text">{{resumeData.profile}}</p>
+
+    <h4 class="head-title text-center underline"><span class="highlight">Professional Summary</span></h4>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let desc of resumeData.professionalSummary">{{desc}}</li>
+    </ul>
+
+
+
+</div>
