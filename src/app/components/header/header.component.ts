@@ -8,7 +8,7 @@ import { EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  selectedAppMode: string = 'resume';
+  selectedAppMode: string = 'cool';
   @Output() appMode = new EventEmitter<string>();
   
   constructor() { }

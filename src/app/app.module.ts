@@ -12,6 +12,8 @@ import { ListItemComponent } from './components/homepage/list/list-item/list-ite
 import { FormsModule } from "@angular/forms";
 import { BasicComponent } from './components/basic/basic.component';
 import { TechGridComponent } from './components/basic/tech-grid/tech-grid.component';
+import { JavascriptComponent } from './components/javascript/javascript.component';
+import { UsesComponent } from './components/uses/uses.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { TechGridComponent } from './components/basic/tech-grid/tech-grid.compon
     ListItemComponent,
     BasicComponent,
     TechGridComponent,
+    JavascriptComponent,
+    UsesComponent,
   ],
   imports: [
     BrowserModule,
