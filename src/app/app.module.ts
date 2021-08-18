@@ -14,6 +14,7 @@ import { BasicComponent } from './components/basic/basic.component';
 import { TechGridComponent } from './components/basic/tech-grid/tech-grid.component';
 import { JavascriptComponent } from './components/javascript/javascript.component';
 import { UsesComponent } from './components/uses/uses.component';
+import { HoverClassDirective } from './directives/hover-class.directive';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { UsesComponent } from './components/uses/uses.component';
     TechGridComponent,
     JavascriptComponent,
     UsesComponent,
+    HoverClassDirective,
   ],
   imports: [
     BrowserModule,

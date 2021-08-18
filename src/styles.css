@@ -1,10 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+    --blackColor: #000738;
+    --brightYellow: #ffe600;
+}
+
+html {
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: #74ebd5;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ACB6E5, #74ebd5);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 body {
-    padding: 10px;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
 }
 
 /* Highlighter */
+
+.black-shadow {
+    text-shadow: 1px 2px 2px var(--blackColor) !important;
+}
 
 .highlight {
     position: relative;
@@ -24,4 +52,15 @@ body {
     min-width: calc(100% + 40px);
     min-height: 100%;
     transform: rotate(-1deg);
+}
+
+.hero {
+    /* Photo by mnm.all on Unsplash */
+    background: url('https://images.unsplash.com/photo-1518176258769-f227c798150e') center;
+    background-size: cover;
+    padding: 4rem 2rem;
+    /* Grid styles */
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
