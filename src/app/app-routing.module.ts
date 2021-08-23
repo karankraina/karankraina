@@ -2,17 +2,27 @@ import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { BlogComponent } from './components/javascript/blog/blog.component';
 import { JavascriptComponent } from './components/javascript/javascript.component';
 import { ShardaComponent } from './components/sharda/sharda.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomepageComponent,    
+    component: HomepageComponent,
   },
   {
     path: 'javascript',
-    component: JavascriptComponent,
+    children: [
+      {
+        path: '',
+        component: JavascriptComponent
+      },
+      {
+        path: ':id',
+        component: BlogComponent
+      }
+    ]
   },
   {
     path: 'sharda',

@@ -1,86 +1,25 @@
-.main-wrapper {
-    margin-top: 50px;
-    max-width: 100%;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    align-items: center;
-    grid-gap: 2rem 1rem;
-}
-
-.brand-image {
-    display: grid;
-    grid-template-columns: minmax(300px, 1fr);
-}
-
-.brand-image img {
-    width: 100%;
-    opacity: 0.7;
-}
-
-.title {
+.brand-text h2 {
     font-family: 'Alfa Slab One', Lobster;
-    font-size: 1.2em;
+    font-size: 2em;
     color: var(--textTitle);
+    margin-top: 50px;
 }
 
-@media screen and (min-width: 480px) {
-    .item2 {
-        grid-column: 2 / -1;
-    }
-}
-
-.title {
-    font-family: 'Alfa Slab One', Lobster;
-    font-size: 2rem;
-}
-
-.brand-text {
-    justify-content: center;
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    padding: 0 15%;
-}
-
-.brand-text .description {
+.brand-text p {
     font-size: 1em;
     color: var(--textNormal);
 }
 
-.text-deco {
-    position: relative;
-}
 
-.underline {
-    text-decoration: underline;
-    text-decoration-color: var(--linkColor);
-    text-decoration-thickness: 3px;
-}
-
-.text-deco::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: block;
-    background: linear-gradient(180deg, var(--linkColor), var(--backgroundPrimaryColor) 100%);
-    width: 20px;
-    height: 20px;
-    z-index: -100;
-    transform: skew(0deg) rotate(-9deg);
-}
 
 @media screen and (max-width: 768px) {
     .brand-text {
         padding: 0;
     }
-    .brand-text .description {
+    .brand-text p {
         font-size: 1rem;
     }
-    .title {
+    .brand-text h2 {
         font-size: 1.5rem;
     }
 }

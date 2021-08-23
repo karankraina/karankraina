@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogsService } from 'src/app/services/blogs.service';
+
+import { Blog } from 'src/app/models/blog';
 
 @Component({
   selector: 'app-javascript',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JavascriptComponent implements OnInit {
 
-  constructor() { }
+  blogs: Blog[];
+  constructor(private blogsRef: BlogsService) { }
 
   ngOnInit(): void {
+    this.blogs = this.blogsRef.blogs;
   }
 
 }

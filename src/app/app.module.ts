@@ -14,6 +14,8 @@ import { SliderComponent } from './components/common/slider/slider.component';
 import { ApplyThemeDirective } from './directives/apply-theme.directive';
 import { ShardaComponent } from './components/sharda/sharda.component';
 import { AboutComponent } from './components/about/about.component';
+import { BlogComponent } from './components/javascript/blog/blog.component';
+import { BlogLinkComponent } from './components/javascript/blog-link/blog-link.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { AboutComponent } from './components/about/about.component';
     ApplyThemeDirective,
     ShardaComponent,
     AboutComponent,
+    BlogComponent,
+    BlogLinkComponent,
   ],
   imports: [
     BrowserModule,

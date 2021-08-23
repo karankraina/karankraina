@@ -5,7 +5,7 @@
     --brightYellow: #ffe600;
 }
 
-/* Light Global Styles */
+/* Light Global Variables */
 
 body.light {
     --backgroundPrimaryColor: #fff;
@@ -18,7 +18,7 @@ body.light {
     --highlightText: #d23669;
 }
 
-/* Dark Global Styles */
+/* Dark Global Variables */
 body.dark {
     --backgroundPrimaryColor: #282c35;
     --backgroundSecondaryColor: #363c48;
@@ -29,6 +29,8 @@ body.dark {
     --highlightSecondaryBackground: #363c48;
     --highlightText: #ffa7c4;
 }
+
+/* Global Styles */
 
 html {
     padding: 0;
@@ -45,30 +47,34 @@ body {
     box-sizing: inherit;
 }
 
+a {
+    color: var(--linkColor);
+    text-decoration: underline;
+}
+
 
 
 /* Highlighter */
 
-.black-shadow {
-    text-shadow: 1px 2px 2px var(--blackColor) !important;
-}
-
-.highlight {
+.text-deco {
     position: relative;
-    margin-bottom: 20px;
-    padding: 5px;
 }
 
-.highlight::before {
+.text-deco::before {
     content: '';
     position: absolute;
-    min-width: 100%;
-    display: inline-block;
-    z-index: -10;
-    left: -20px;
-    background: rgb(245, 231, 18);
-    background: linear-gradient(90deg, rgba(245, 231, 18, 1) 0%, rgba(255, 255, 255, 1) 100%);
-    min-width: calc(100% + 40px);
-    min-height: 100%;
-    transform: rotate(-1deg);
+    left: 0;
+    top: -5px;
+    display: block;
+    background: linear-gradient(180deg, var(--linkColor), var(--backgroundPrimaryColor) 100%);
+    width: 20px;
+    height: 20px;
+    z-index: -100;
+    transform: skew(0deg) rotate(-9deg);
+}
+
+.underline {
+    text-decoration: underline;
+    text-decoration-color: var(--linkColor);
+    text-decoration-thickness: 3px;
 }

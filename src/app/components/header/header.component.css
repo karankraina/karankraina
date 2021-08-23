@@ -48,9 +48,19 @@
     font-size: 18px;
     min-width: max-content;
     text-shadow: none !important;
+    color: var(--textNormal);
 }
 
 @media screen and (max-width: 480px) {
+    .header-item-link {
+        font-size: 1.3em;
+    }
+    .little-bottom {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width:766px) and (max-width: 996px) {
     .header-item-link {
         font-size: 1.3em;
     }
