@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UsesComponent } from './uses.component';
+import { ShardaComponent } from './sharda.component';
 
-describe('UsesComponent', () => {
-  let component: UsesComponent;
-  let fixture: ComponentFixture<UsesComponent>;
+describe('ShardaComponent', () => {
+  let component: ShardaComponent;
+  let fixture: ComponentFixture<ShardaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UsesComponent ]
+      declarations: [ ShardaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UsesComponent);
+    fixture = TestBed.createComponent(ShardaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

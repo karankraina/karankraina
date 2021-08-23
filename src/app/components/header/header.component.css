@@ -40,7 +40,6 @@
 
 .little-bottom {
     font-family: 'Kalam', cursive;
-    color: var(--highlightColor);
     font-weight: bold;
     position: absolute;
     bottom: -16px;
@@ -53,7 +52,10 @@
 
 @media screen and (max-width: 480px) {
     .header-item-link {
-        font-size: 1.2em;
+        font-size: 1.3em;
+    }
+    .little-bottom {
+        font-size: 1rem;
     }
 }
 
