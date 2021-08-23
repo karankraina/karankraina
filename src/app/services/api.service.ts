@@ -16,10 +16,10 @@ export class ApiService {
   ) { }
 
   getBlogs(): Observable<any> {
-    return this.http.get('http://localhost:8080/api/blogs');
+    return this.http.get('/api/blogs');
   }
   getBlogById(id: string): Observable<any> {
-    return this.http.get('http://localhost:8080/api/blogs').pipe(
+    return this.http.get('/api/blogs').pipe(
       map(
         (response: Blog[]) => response.find(blog => blog.id === id)
       )
