@@ -9,7 +9,7 @@ export class BlogLinkComponent implements OnInit {
 
   @Input() title: string;
   @Input() shortDescription: string;
-  @Input() id: number;
+  @Input() id: string;
   @Input() author: string;
   @Input() publishedDate: string;
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogsService } from 'src/app/services/blogs.service';
 
 import { Blog } from 'src/app/models/blog';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-javascript',
@@ -11,10 +11,22 @@ import { Blog } from 'src/app/models/blog';
 export class JavascriptComponent implements OnInit {
 
   blogs: Blog[];
-  constructor(private blogsRef: BlogsService) { }
+  isLoading: boolean = true;
+  constructor(
+    private api: ApiService
+  ) { }
 
   ngOnInit(): void {
-    this.blogs = this.blogsRef.blogs;
+    this.refreshBlogs();
+  }
+
+  refreshBlogs() {
+    this.api.getBlogs().subscribe(
+      (response) => {
+        this.blogs = response;
+        this.isLoading = false;
+      }
+    );
   }
 
 }
