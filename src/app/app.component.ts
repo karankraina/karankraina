@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title: string = 'karankraina';
-  appMode: string = 'cool';
 
-  onAppModeChange(newMode){
-    console.log('App Mode has been changed!', newMode);
-    this.appMode = newMode;
-  }
+
+  constructor() {}
+
+  ngOnInit() { }
+
+
 }

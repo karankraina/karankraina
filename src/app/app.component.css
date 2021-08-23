@@ -1,0 +1,10 @@
+.container {
+    background-color: var(--backgroundColor);
+}
+
+.slider {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--textTitle);
+}

@@ -1,40 +1,30 @@
 <nav>
+    
     <div class="container">
+
         <div class="header-item">
-            <a class="header-item-link" appHoverClass="active" routerLink="/" [routerLinkActive]="'active'"
+            <a class="header-item-link" appHoverClass="link-hover" routerLink="/" [routerLinkActive]="'active'"
                 [routerLinkActiveOptions]="{exact: true}">
-                Profile
-                <span class="little-bottom d-none d-sm-block black-shadow">know me</span>
+                Home
+                <span class="little-bottom black-shadow">welcome</span>
             </a>
         </div>
         <div class="header-item">
-            <a class="header-item-link" appHoverClass="active" routerLink="/projects" [routerLinkActive]="'active'">
-                Projects
-                <span class="little-bottom d-none d-sm-block black-shadow">hobby</span>
-            </a>
-        </div>
-        <div class="header-item">
-            <a class="header-item-link" appHoverClass="active" routerLink="/javascript" [routerLinkActive]="'active'">
-                JavaScript
-                <span class="little-bottom d-none d-sm-block black-shadow">snippets </span>
-            </a>
-        </div>
-        <div class="header-item">
-            <a class="header-item-link" appHoverClass="active" routerLink="/uses" [routerLinkActive]="'active'">
-                /uses
-                <span class="little-bottom d-none d-sm-block black-shadow">tools I use</span>
-            </a>
-        </div>
-        <div class="header-item">
-            <a class="header-item-link" appHoverClass="active" routerLink="/contact" [routerLinkActive]="'active'">
+            <a class="header-item-link" appHoverClass="link-hover" routerLink="/contact" [routerLinkActive]="'active'">
                 Contact
-                <span class="little-bottom d-none d-sm-block black-shadow">meet on web</span>
+                <span class="little-bottom black-shadow">meet on web</span>
             </a>
         </div>
         <div class="header-item">
-            <a class="header-item-link" appHoverClass="active" routerLink="/resume" [routerLinkActive]="'active'">
-                Resume
-                <span class="little-bottom d-none d-sm-block black-shadow">under development</span>
+            <a class="header-item-link" appHoverClass="link-hover" routerLink="/resume" [routerLinkActive]="'active'">
+                About
+                <span class="little-bottom black-shadow">me...</span>
+            </a>
+        </div>
+        <div class="header-item">
+            <a class="header-item-link" appHoverClass="link-hover" routerLink="/javascript" [routerLinkActive]="'active'">
+                JavaScript
+                <span class="little-bottom black-shadow">snippets </span>
             </a>
         </div>
     </div>
