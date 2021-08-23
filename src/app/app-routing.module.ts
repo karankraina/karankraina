@@ -1,36 +1,36 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BasicComponent } from './components/basic/basic.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { AboutComponent } from './components/about/about.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { BlogComponent } from './components/javascript/blog/blog.component';
 import { JavascriptComponent } from './components/javascript/javascript.component';
-import { ProjectsComponent } from './components/projects/projects.component';
-import { UsesComponent } from './components/uses/uses.component';
+import { ShardaComponent } from './components/sharda/sharda.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomepageComponent,    
-  },
-  {
-    path: 'projects',
-    component: ProjectsComponent,
-  },
-  {
-    path: 'contact',
-    component: ContactComponent,
+    component: HomepageComponent,
   },
   {
     path: 'javascript',
-    component: JavascriptComponent,
+    children: [
+      {
+        path: '',
+        component: JavascriptComponent
+      },
+      {
+        path: ':id',
+        component: BlogComponent
+      }
+    ]
   },
   {
-    path: 'uses',
-    component: UsesComponent,
+    path: 'sharda',
+    component: ShardaComponent,
   },
   {
-    path: 'resume',
-    component: BasicComponent,
+    path: 'about',
+    component: AboutComponent,
   }
 ];
 

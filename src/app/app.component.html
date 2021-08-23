@@ -1,3 +1,14 @@
-<app-header (appMode)="onAppModeChange($event)"></app-header>
-<router-outlet *ngIf="appMode === 'cool'; else resumeMode"></router-outlet>
-<ng-template #resumeMode><app-basic></app-basic></ng-template>
+<div class="container" appApplyTheme>
+    <div class="alert">
+        <p>This site is currently under development !!!</p>
+    </div>
+    <div class="slider">
+        🌞
+        <app-slider></app-slider>
+        🌙
+    </div>
+    <app-header></app-header>
+    <div class="container-fluid wrapper">
+        <router-outlet></router-outlet>
+    </div>
+</div>

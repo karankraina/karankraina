@@ -1,43 +1,30 @@
 <nav>
-    <div class="container-fluid">
-        <div class="row justify-content-center header">
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2 header-item">
-                <a class="header-item-link" routerLink="/" [routerLinkActive]="'active'"
-                    [routerLinkActiveOptions]="{exact: true}">
-                    Profile
-                    <span class="little-top d-none d-sm-block">Know me</span>
-                </a>
-            </div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2 header-item">
-                <a class="header-item-link" routerLink="/projects" [routerLinkActive]="'active'">
-                    Projects
-                    <span class="little-top d-none d-sm-block">Free time</span>
-                </a>
-            </div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2 header-item">
-                <a class="header-item-link" routerLink="/javascript" [routerLinkActive]="'active'">
-                    JavaScript
-                    <span class="little-top d-none d-sm-block">Hot Tips</span>
-                </a>
-            </div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2 header-item">
-                <a class="header-item-link" routerLink="/uses" [routerLinkActive]="'active'">
-                    /uses
-                    <span class="little-top d-none d-sm-block">Tools I use</span>
-                </a>
-            </div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2 header-item">
-                <a class="header-item-link" routerLink="/contact" [routerLinkActive]="'active'">
-                    Contact
-                    <span class="little-top d-none d-sm-block">Message</span>
-                </a>
-            </div>
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2 header-item">
-                <a class="header-item-link" routerLink="/resume" [routerLinkActive]="'active'">
-                    Resume
-                    <span class="little-top d-none d-sm-block">Basic</span>
-                </a>
-            </div>
+    <div class="container">
+        <div class="header-item">
+            <a class="header-item-link" appHoverClass="link-hover" routerLink="/" [routerLinkActive]="'active'"
+                [routerLinkActiveOptions]="{exact: true}">
+                Home
+                <span class="little-bottom black-shadow">welcome</span>
+            </a>
+        </div>
+        <div class="header-item">
+            <a class="header-item-link" appHoverClass="link-hover" routerLink="/about" [routerLinkActive]="'active'">
+                About
+                <span class="little-bottom black-shadow">me...</span>
+            </a>
+        </div>
+        <div class="header-item">
+            <a class="header-item-link" appHoverClass="link-hover" routerLink="/javascript"
+                [routerLinkActive]="'active'">
+                JavaScript
+                <span class="little-bottom black-shadow">mini blogs </span>
+            </a>
+        </div>
+        <div class="header-item">
+            <a class="header-item-link" appHoverClass="link-hover" routerLink="/sharda" [routerLinkActive]="'active'">
+                Sharda
+                <span class="little-bottom black-shadow">script </span>
+            </a>
         </div>
     </div>
 </nav>

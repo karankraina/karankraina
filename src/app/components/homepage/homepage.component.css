@@ -1,58 +1,25 @@
-.main-wrapper {
+.brand-text h2 {
+    font-family: 'Alfa Slab One', Lobster;
+    font-size: 2em;
+    color: var(--textTitle);
     margin-top: 50px;
 }
 
-.title {
-    font-family: 'Alfa Slab One', Lobster;
-    font-size: 4rem;
+.brand-text p {
+    font-size: 1em;
+    color: var(--textNormal);
 }
 
-.brand-text {
-    justify-content: center;
-    /* align-items: center; */
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    padding: 0 15%;
-}
 
-.brand-text .description {
-    font-size: 2rem;
-}
-
-.text-deco {
-    position: relative;
-}
-
-.underline {
-    text-decoration: underline;
-    text-decoration-color: #00abff;
-    text-decoration-thickness: 3px;
-}
-
-.text-deco::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: block;
-    background-color: #00abff;
-    width: 30px;
-    height: 30px;
-    z-index: -100;
-    transform: skew(5deg) rotate(47deg);
-}
-
-.brand-image {}
 
 @media screen and (max-width: 768px) {
     .brand-text {
         padding: 0;
     }
-    .brand-text .description {
-        font-size: 1.5rem;
+    .brand-text p {
+        font-size: 1rem;
     }
-    .title {
-        font-size: 3rem;
+    .brand-text h2 {
+        font-size: 1.5rem;
     }
 }

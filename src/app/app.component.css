@@ -1,0 +1,25 @@
+.container {
+    background-color: var(--backgroundColor);
+}
+
+.slider {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: var(--textTitle);
+}
+
+.wrapper {
+    padding: 0;
+    margin-top: 30px;
+    color: var(--textNormal);
+}
+
+.alert {
+    text-align: center;
+    color: var(--backgroundPrimaryColor);
+    font-weight: bold;
+    font-family: kalam;
+    background: var(--textTitle);
+    max-height: 50px;
+}
