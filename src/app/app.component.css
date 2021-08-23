@@ -14,3 +14,12 @@
     margin-top: 30px;
     color: var(--textNormal);
 }
+
+.alert {
+    text-align: center;
+    color: var(--backgroundPrimaryColor);
+    font-weight: bold;
+    font-family: kalam;
+    background: var(--textTitle);
+    max-height: 50px;
+}
