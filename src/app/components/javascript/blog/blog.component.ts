@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Blog } from 'src/app/models/blog';
-import { BlogsService } from 'src/app/services/blogs.service';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-blog',
@@ -9,19 +9,30 @@ import { BlogsService } from 'src/app/services/blogs.service';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
-  id: number;
+  id: string;
+  isLoading: boolean = true;
   blog: Partial<Blog>;
 
   constructor(
     private route: ActivatedRoute,
-    private blogRef: BlogsService
+    private api: ApiService
   ) {
-    this.id = +this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['id'];
   }
 
   ngOnInit(): void {
-    this.blog = this.blogRef.findBlogById(this.id);
-    console.log(this.blog);
+    console.log(this.id);
+    this.refreshBlog();
+  }
+
+  refreshBlog() {
+    this.api.getBlogById(this.id).subscribe(
+      (response) => {
+        console.log(response)
+        this.blog = response;
+        this.isLoading = false;
+      }
+    );
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from './services/api.service';
 import { ThemeService } from './services/theme.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ThemeService } from './services/theme.service';
 export class AppComponent {
 
 
-  constructor() {}
+  constructor(private api: ApiService) { }
 
   ngOnInit() { }
 

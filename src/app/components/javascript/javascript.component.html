@@ -1,8 +1,10 @@
-<div class="js-container">
-    <app-blog-link *ngFor="let blog of blogs"
-     [id]="blog.id" [title]="blog.title" [shortDescription]="blog.shortDescription" [author]="blog.author"
-        [publishedDate]="blog.publishedDate">
+<div class="js-container" *ngIf="!isLoading; else loadingScreen">
+    <app-blog-link *ngFor="let blog of blogs" [id]="blog.id" [title]="blog.title"
+        [shortDescription]="blog.shortDescription" [author]="blog.author" [publishedDate]="blog.publishedDate">
     </app-blog-link>
 
     <router-outlet></router-outlet>
 </div>
+<ng-template #loadingScreen>
+    <h4>Loading...</h4>
+</ng-template>

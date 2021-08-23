@@ -1,0 +1,16 @@
+.wrapper .title {
+    color: var(--linkColor);
+    text-decoration: underline;
+    /* font-size: 1em; */
+}
+
+.wrapper .meta {
+    font-family: Kalam;
+}
+
+.wrapper .short-description {
+    background-color: khaki;
+    padding: 15px;
+    border-radius: 20px;
+    color: #000;
+}
