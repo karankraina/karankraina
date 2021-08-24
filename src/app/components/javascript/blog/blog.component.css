@@ -14,3 +14,7 @@
     border-radius: 20px;
     color: #000;
 }
+
+.loader {
+    text-align: center;
+}

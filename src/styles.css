@@ -12,7 +12,6 @@ body.light {
     --backgroundSecondaryColor: #f9fafb;
     --textNormal: #222;
     --textTitle: #222;
-    --linkColor: #d23669;
     --highlightPrimaryBackground: #fdbcd1;
     --highlightSecondaryBackground: #FFF;
     --highlightText: #d23669;
@@ -41,6 +40,7 @@ html {
 body {
     box-sizing: border-box;
     background-color: var(--backgroundPrimaryColor);
+    font-size: 20px;
 }
 
 *, *::before, *::after {
@@ -76,5 +76,5 @@ a {
 .underline {
     text-decoration: underline;
     text-decoration-color: var(--linkColor);
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: 2px;
 }
