@@ -1,0 +1,28 @@
+.social {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px 15px;
+    grid-auto-flow: row;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.social-item {
+    border: 1px solid var(--textNormal);
+    min-width: 80%;
+    text-align: center;
+}
+
+.headline {
+    color: var(--linkColor);
+    font-size: 1.5em;
+    text-decoration: underline;
+}
+.social-username{
+    margin-top: -20px;
+    font-size: 0.6em;
+}

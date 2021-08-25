@@ -1,7 +1,7 @@
 <div class="main-wrapper" *ngIf="!isLoading; else loadingScreen">
     <div class="container">
         <div class="brand-text">
-            <h2><span class="text-deco"></span><a class="handle-link1" href="#">@shardapeetham</a>-grams </h2>
+            <h2><span class="text-deco"></span><a class="handle-link1" target="_blank" href="https://instagram.com/shardapeetham">@shardapeetham</a>-grams </h2>
             <p>
                 Sneak peak into my Shardapeetham instagram profile.
             </p>
@@ -9,7 +9,7 @@
         </div>
         <div class="gallery">
             <div class="img-item" *ngFor="let media of instgramPosts">
-                <img class="img-fluid" *ngIf="media.media_type !== 'VIDEO'" src="{{media.media_url}}" width="300"
+                <img class="img-fluid" src="{{media.media_url}}" width="300"
                     alt="shardapeetham">
             </div>
         </div>

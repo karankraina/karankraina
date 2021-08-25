@@ -14,13 +14,16 @@ export class ShardaInstagramComponent implements OnInit {
   constructor(
     private api: ApiService
   ) { }
-
   ngOnInit(): void {
     this.api.getInstagramPosts().subscribe(
       (response: any) => {
-        this.instgramPosts = response.data;
+        this.instgramPosts = response.data.filter((media) => media.media_type !== 'VIDEO');
         this.isLoading = false;
-        console.log(this.instgramPosts.filter(item => item.media_type !== 'IMAGE' ))
+        console.log(this.instgramPosts)
+      },
+      (error) => {
+        console.log(error);
+        this.isLoading = false;
       }
     )
   }

@@ -14,10 +14,11 @@ import { HoverClassDirective } from './directives/hover-class.directive';
 import { SliderComponent } from './components/common/slider/slider.component';
 import { ApplyThemeDirective } from './directives/apply-theme.directive';
 import { ShardaComponent } from './components/sharda/sharda.component';
-import { AboutComponent } from './components/about/about.component';
 import { BlogComponent } from './components/javascript/blog/blog.component';
 import { BlogLinkComponent } from './components/javascript/blog-link/blog-link.component';
 import { ShardaInstagramComponent } from './components/sharda/sharda-instagram/sharda-instagram.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ExternalLinkDirective } from './directives/external-link.directive';
 
 @NgModule({
   declarations: [
@@ -31,10 +32,11 @@ import { ShardaInstagramComponent } from './components/sharda/sharda-instagram/s
     SliderComponent,
     ApplyThemeDirective,
     ShardaComponent,
-    AboutComponent,
     BlogComponent,
     BlogLinkComponent,
     ShardaInstagramComponent,
+    ContactComponent,
+    ExternalLinkDirective,
   ],
   imports: [
     BrowserModule,

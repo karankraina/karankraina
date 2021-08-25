@@ -31,6 +31,10 @@ export class BlogComponent implements OnInit {
         console.log(response)
         this.blog = response;
         this.isLoading = false;
+      },
+      (error) => {
+        console.log(error);
+        this.isLoading = false;
       }
     );
   }

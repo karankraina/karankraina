@@ -25,6 +25,10 @@ export class JavascriptComponent implements OnInit {
       (response) => {
         this.blogs = response;
         this.isLoading = false;
+      },
+      (error) => {
+        console.log(error);
+        this.isLoading = false;
       }
     );
   }
