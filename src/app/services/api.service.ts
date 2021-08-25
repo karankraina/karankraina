@@ -9,20 +9,29 @@ import { Blog } from '../models/blog';
 })
 export class ApiService {
 
-  store = {};
+  host: string = 'https://karankraina-api.vercel.app/api/';
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getBlogs(): Observable<any> {
-    return this.http.get('https://karankraina-api.vercel.app/api/blogs');
+  getUrlEndpoint(endpoint: string): string {
+    return `${this.host}${endpoint}`;
   }
+
+  getBlogs(): Observable<any> {
+    return this.http.get(this.getUrlEndpoint('blogs'));
+  }
+
   getBlogById(id: string): Observable<any> {
-    return this.http.get('https://karankraina-api.vercel.app/api/blogs').pipe(
+    return this.http.get(this.getUrlEndpoint('blogs')).pipe(
       map(
         (response: Blog[]) => response.find(blog => blog.id === id)
       )
     )
+  }
+
+  getInstagramPosts() {
+    return this.http.get(this.getUrlEndpoint('instagram'));
   }
 }

@@ -17,6 +17,7 @@ import { ShardaComponent } from './components/sharda/sharda.component';
 import { AboutComponent } from './components/about/about.component';
 import { BlogComponent } from './components/javascript/blog/blog.component';
 import { BlogLinkComponent } from './components/javascript/blog-link/blog-link.component';
+import { ShardaInstagramComponent } from './components/sharda/sharda-instagram/sharda-instagram.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BlogLinkComponent } from './components/javascript/blog-link/blog-link.c
     AboutComponent,
     BlogComponent,
     BlogLinkComponent,
+    ShardaInstagramComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,51 @@
+.brand-text h2 {
+    font-family: 'Alfa Slab One', Lobster;
+    font-size: 2em;
+    color: var(--textTitle);
+    margin-top: 50px;
+}
+
+.brand-text p {
+    font-size: 1em;
+    color: var(--textNormal);
+}
+
+.loader {
+    text-align: center;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 15px 15px;
+    grid-auto-flow: row;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.gallerry img {
+    width: 100%;
+    height: auto;
+}
+
+.handle-link {
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .brand-text {
+        padding: 0;
+    }
+    .brand-text p {
+        font-size: 1rem;
+    }
+    .brand-text h2 {
+        font-size: 1.5rem;
+    }
+    /* .gallery {
+        grid-template-columns: 1fr;
+    } */
+}
