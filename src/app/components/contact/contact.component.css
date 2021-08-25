@@ -1,7 +1,7 @@
 .social {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     gap: 15px 15px;
     grid-auto-flow: row;
     justify-content: center;
