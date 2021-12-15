@@ -25,7 +25,7 @@ export class LocalCacheService {
   }
 
   setCache(key: string, data: any) {
-    const expiresAt = +(new Date()).getTime() + 6 * 60 * 60 * 1000;
+    const expiresAt = +(new Date()).getTime() + 20 * 60 * 1000;
     const cacheData = JSON.stringify({data, expiresAt});
     localStorage.setItem(key, cacheData);
   }

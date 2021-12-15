@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs'
-import { map, filter } from 'rxjs/operators';
+import { Observable, of } from 'rxjs'
+import { map } from 'rxjs/operators';
 import { Blog } from '../models/blog';
 import { LocalCacheService } from './local-cache.service';
 
@@ -40,7 +40,6 @@ export class ApiService {
 
   getBlogs(): Observable<any> {
     return this.httpGet('blogs');
-    return this.http.get(this.getUrlEndpoint('blogs'));
   }
 
   getBlogById(id: string): Observable<any> {
@@ -49,15 +48,9 @@ export class ApiService {
         (response: Blog[]) => response.find(blog => blog.id === id)
       )
     );
-    return this.http.get(this.getUrlEndpoint('blogs')).pipe(
-      map(
-        (response: Blog[]) => response.find(blog => blog.id === id)
-      )
-    )
   }
 
   getInstagramPosts() {
     return this.httpGet('instagram');
-    return this.http.get(this.getUrlEndpoint('instagram'));
   }
 }
