@@ -83,3 +83,12 @@ a {
     text-decoration-color: var(--linkColor);
     text-decoration-thickness: 2px;
 }
+
+.alert {
+    text-align: center;
+    color: var(--backgroundPrimaryColor);
+    font-weight: bold;
+    font-family: kalam;
+    background: var(--textTitle);
+    max-height: 50px;
+}

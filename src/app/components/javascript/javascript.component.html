@@ -1,4 +1,7 @@
 <div class="js-container" *ngIf="!isLoading; else loadingScreen">
+    <div class="alert">
+        <p [ngStyle]="{fontSize: '16px'}">I'm still working on this !!!</p>
+    </div>
     <app-blog-link *ngFor="let blog of blogs" [id]="blog.id" [title]="blog.title"
         [shortDescription]="blog.shortDescription" [author]="blog.author" [publishedDate]="blog.publishedDate">
     </app-blog-link>

@@ -10,6 +10,12 @@
     color: var(--textNormal);
 }
 
+.cool-border {
+    border: 2px solid var(--textNormal);
+    border-radius: 5px;
+    padding: 5px;
+}
+
 
 
 @media screen and (max-width: 768px) {
