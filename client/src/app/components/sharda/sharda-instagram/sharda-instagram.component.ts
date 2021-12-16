@@ -17,7 +17,7 @@ export class ShardaInstagramComponent implements OnInit {
   ngOnInit(): void {
     this.api.getInstagramPosts().subscribe(
       (response: any) => {
-        this.instgramPosts = response.data.filter((media) => media.media_type !== 'VIDEO');
+        this.instgramPosts = response.data.filter((media: any) => media.media_type !== 'VIDEO');
         this.isLoading = false;
         console.log(this.instgramPosts)
       },

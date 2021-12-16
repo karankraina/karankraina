@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class JavascriptComponent implements OnInit {
 
-  blogs: Blog[];
+  blogs: Blog[] = [];
   isLoading: boolean = true;
   constructor(
     private api: ApiService

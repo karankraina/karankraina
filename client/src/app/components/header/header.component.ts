@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  handleValueChange(event){
+  handleValueChange(event: any){
     this.appMode.emit(event);
   }
 

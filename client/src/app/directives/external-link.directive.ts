@@ -4,7 +4,7 @@ import { Directive, HostListener, Input } from '@angular/core';
   selector: '[appExternalLink]'
 })
 export class ExternalLinkDirective {
-  @Input('appExternalLink') url: string;
+  @Input('appExternalLink') url: string = '';
 
   @HostListener('click') onMouseEnter() {
     window.open(this.url, '_blank')

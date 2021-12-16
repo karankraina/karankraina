@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class BlogComponent implements OnInit {
   id: string;
   isLoading: boolean = true;
-  blog: Partial<Blog>;
+  blog: Partial<Blog> = {};
 
   constructor(
     private route: ActivatedRoute,

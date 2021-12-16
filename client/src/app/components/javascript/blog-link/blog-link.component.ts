@@ -7,11 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BlogLinkComponent implements OnInit {
 
-  @Input() title: string;
-  @Input() shortDescription: string;
-  @Input() id: string;
-  @Input() author: string;
-  @Input() publishedDate: string;
+  @Input() title: string = '';
+  @Input() shortDescription: string = '';
+  @Input() id: string = '';
+  @Input() author: string = '';
+  @Input() publishedDate: string = '';
 
   constructor() { }
 

@@ -29,7 +29,7 @@ export class ApiService {
     const fullUrl = this.getUrlEndpoint(endpoint);
     return this.http.get(fullUrl).pipe(
       map(
-        (response: Blog[]) => {
+        (response: any) => {
           this.cache.setCache(endpoint, response);
           return response;
         }

@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListItemComponent implements OnInit {
 
-  @Input() label: string;
+  @Input() label: string = '';
   constructor() { }
 
   ngOnInit(): void {
