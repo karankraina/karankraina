@@ -1,0 +1,31 @@
+.brand-text h2 {
+    font-family: 'Alfa Slab One', Lobster;
+    font-size: 2em;
+    color: var(--textTitle);
+    margin-top: 50px;
+}
+
+.brand-text p {
+    font-size: 1em;
+    color: var(--textNormal);
+}
+
+.cool-border {
+    border: 2px solid var(--textNormal);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .brand-text {
+        padding: 0;
+    }
+    .brand-text p {
+        font-size: 1rem;
+    }
+    .brand-text h2 {
+        font-size: 1.5rem;
+    }
+}
