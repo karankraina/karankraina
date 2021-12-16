@@ -14,7 +14,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "cp:www": "mkdir -p ./dist/api/bin && cp ./server/bin/www ./dist/api/bin/",
-    "dev": "concurrently -k \"tsc -p ./server/tsconfig.api.json -w\" \"cd ./dist/api && nodemon -r ./bin/www --watch\" \"ng build --watch\""
+    "dev": "concurrently -k \"tsc -p ./server/tsconfig.api.json -w\" \"cd ./dist/api && nodemon -r ./bin/www --watch\" \"ng build --watch\"",
+    "heroku-prebuild": "npm ci",
+    "heroku-postbuild": "npm run build"
   },
   "private": true,
   "dependencies": {
