@@ -1,7 +1,7 @@
 {
   "name": "karankraina",
   "version": "0.0.0",
-  "engine": {
+  "engines": {
     "node": "14.x"
   },
   "scripts": {
