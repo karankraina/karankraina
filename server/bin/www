@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 
 /**
+ * Require dotenv at top level
+ */
+require('dotenv').config();
+
+/**
  * Module dependencies.
  */
 
