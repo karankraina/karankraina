@@ -6,8 +6,15 @@
 }
 
 .brand-text p {
-    font-size: 1em;
+    font-size: 1.2em;
     color: var(--textNormal);
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.brand-logo a {
+    font-size: 0.8em;
+    text-decoration: none;
 }
 
 .cool-border {
@@ -22,9 +29,12 @@
     .brand-text {
         padding: 0;
     }
+
     .brand-text p {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        text-align: left;
     }
+
     .brand-text h2 {
         font-size: 1.5rem;
     }

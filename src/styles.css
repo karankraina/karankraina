@@ -41,7 +41,7 @@ html {
 body {
     box-sizing: border-box;
     background-color: var(--backgroundPrimaryColor);
-    font-size: 20px;
+    font-size: 24px;
 }
 
 *, *::before, *::after {
