@@ -146,14 +146,14 @@ export default function Home() {
             },
           ]}
         />
-        <Comment text="Read more about me" />
-        <Function label="viewAbout()" href="/about" />
+        {/* <Comment text="Read more about me" />
+        <Function label="viewAbout()" href="/about" /> */}
 
         <Comment text="click to watch my YT videos" />
-        <Function label="watchVideos()" href="/about" />
+        <Function label="watchVideos()" href="https://www.youtube.com/channel/UCjCOdR3PAwnPIFq1OS_c0dQ" />
 
         <Comment text="click to read my blogs" />
-        <Function label="viewBlogs()" href="/about" />
+        <Function label="viewBlogs()" href="https://js.karanraina.tech/" />
       </CodeContainer>
     </Layout>
   );
