@@ -1,0 +1,23 @@
+.line {
+    margin: 2px 0;
+}
+.orange { 
+    color: var(--color-code-1);
+}
+
+.purple {
+ color: var(--color-code-3);
+ font-weight: bolder;
+}
+
+.green {
+    color: var(--color-code-2);
+}
+
+.yellow {
+    color: var(--color-code-4);
+}
+
+.white {
+    color: var(--color-light);
+}

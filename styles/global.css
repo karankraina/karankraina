@@ -1,0 +1,24 @@
+:root {
+  --color-primary: #0c3c5c;
+  --color-dark: #14243c;
+  --color-light: #FFF;
+  --color-code-1: #e07013;
+  --color-code-2: #65eb77;
+  --color-code-3: #cd3ad2;
+  --color-code-4: #ff9d00;
+  --color-code-5: #1673ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0 10;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  color: var(--color-light);
+  background-color: var(--color-light);
+}

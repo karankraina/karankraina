@@ -1,0 +1,9 @@
+.function {
+    text-decoration: none;
+    color: var(--color-code-4);
+}
+
+.function:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
