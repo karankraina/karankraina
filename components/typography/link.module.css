@@ -1,0 +1,14 @@
+.link {
+  text-decoration: none;
+  background-color: var(--color-code-1);
+  color: var(--color-light);
+  padding: 3px 7px;
+  border-radius: 5px;
+  margin: auto 3px;
+  line-height: 2;
+  white-space: nowrap;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

@@ -1,5 +1,5 @@
 :root {
-  --color-primary: #0c3c5c;
+  --color-primary: #000203;
   --color-dark: #14243c;
   --color-light: #FFF;
   --color-code-1: #e07013;
@@ -20,5 +20,13 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 24px;
   color: var(--color-light);
-  background-color: var(--color-light);
+  background: var(--color-primary);
+}
+
+/* For mobile devices */
+@media screen and (max-width: 768px) {
+  html,
+  body {
+    font-size: 16px;
+  }
 }
