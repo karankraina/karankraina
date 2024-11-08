@@ -8,7 +8,7 @@
 
 ## 🚀 About Me  
 
-I am a professional full-stack developer with expertise in building **highly scalable**, **enterprise-level modern web applications**. With a focus on performance engineering and developer tools, I have created robust solutions serving thousands of requests per second.
+I am a professional full-stack web developer with expertise in building **highly scalable**, **enterprise-level modern web applications**. With a focus on performance engineering and developer tools, I have created robust solutions using node.js serving tens of thousands of requests per second.
 
 Beyond my professional work, I actively contribute to **open-source projects**, reflecting my commitment to the developer community and continuous learning.
 
