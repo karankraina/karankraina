@@ -1,7 +1,7 @@
 # 👋 Hello, I'm Karan Raina
 
 🌟 **A passionate full-stack web developer from India 🇮🇳**  
-💻 **Currently working as a Senior Developer in the Theme Engine team at [Fynd](https://www.fynd.com)**  
+💻 **Currently working as a Senior Software Engineer at [Red Hat](https://www.redhat.com)**  
 🏆 **Award-winning engineer recognized for enhancing performance, scalability, and developer experience.**
 
 ---
