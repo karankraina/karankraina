@@ -1,61 +1,495 @@
-import Link from 'next/link'
+'use client'
 
-import Layout from "../components/layout/layout";
-import Avatar from "../components/avatar/index";
-import CustomLink from "../components/typography/link";
-import ContactList from "../components/contact/contact-list";
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import Layout from '../components/Layout'
+import GlowCard from '../components/ui/GlowCard'
+import ProjectCard from '../components/ui/ProjectCard'
+import SocialLinks from '../components/ui/SocialLinks'
+import TechStack from '../components/ui/TechStack'
+import { Download, MapPin, Calendar, Award, Briefcase, Code, Users, Mail } from 'lucide-react'
 
-const socialList = [
+const featuredProjects = [
   {
-    id: 1,
-    url: 'https://twitter.com/karankraina',
-    svg: 'M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z',
-    color: '#0077B5',
+    title: 'MCP TypeScript Template',
+    description: 'High-performance TypeScript template for creating Model Context Protocol (MCP) servers using Node.js and Fastify. Provides type-safe development with comprehensive error handling and session management.',
+    tech: ['TypeScript', 'Node.js', 'Fastify', 'MCP Protocol'],
+    github: 'https://github.com/karankraina/mcp-typescript',
+    logo: 'KR',
+    featured: true
   },
   {
-    id: 2,
-    url: 'https://github.com/karankraina',
-    svg: 'M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z',
-    color: '#FFF',
+    title: 'Template MCP Server',
+    company: 'Red Hat Data & AI',
+    description: 'Production-ready template for developing Model Context Protocol (MCP) servers using Python and FastAPI with enterprise-grade features, comprehensive testing, and containerized deployment.',
+    tech: ['Python', 'FastAPI', 'FastMCP', 'Pydantic', 'Docker', 'Kubernetes'],
+    github: 'https://github.com/redhat-data-and-ai/template-mcp-server',
+    logo: 'RH',
+    featured: true
   },
   {
-    id: 3,
-    url: 'https://www.linkedin.com/in/karankraina',
-    svg: 'M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z',
-    color: '#0072b1 ',
+    title: 'Template Agent',
+    company: 'Red Hat Data & AI',
+    description: 'Enterprise AI agent framework with streaming capabilities, conversation management, and PostgreSQL integration. Built for production environments with comprehensive monitoring.',
+    tech: ['Python', 'FastAPI', 'LangGraph', 'PostgreSQL', 'Langfuse', 'SSE'],
+    github: 'https://github.com/redhat-data-and-ai/template-agent',
+    logo: 'RH',
+    featured: true
   },
   {
-    id: 4,
-    url: 'https://www.youtube.com/channel/UCjCOdR3PAwnPIFq1OS_c0dQ',
-    svg: 'M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z',
-    color: '#FF0000',
+    title: 'express-under-pressure',
+    description: 'Middleware for monitoring server health under high load in ExpressJS applications.',
+    tech: ['Node.js', 'Express', 'Performance'],
+    github: 'https://github.com/karankraina/express-under-pressure',
+    live: 'https://www.npmjs.com/package/express-under-pressure',
+    featured: true
   },
-];
+  {
+    title: 'nodejs-threads',
+    description: 'Simplified function-based implementation of Node.js worker threads for better performance.',
+    tech: ['Node.js', 'Worker Threads', 'Performance'],
+    github: 'https://github.com/karankraina/nodejs-threads',
+    live: 'https://www.npmjs.com/package/nodejs-threads'
+  },
+  {
+    title: 'react-hydration-overlay',
+    description: 'Webpack plugin for fixing server-client hydration issues in React applications.',
+    tech: ['React', 'SSR', 'Webpack', 'Development Tools'],
+    github: 'https://github.com/karankraina/react-hydration-overlay',
+    live: 'https://www.npmjs.com/package/react-hydration-overlay'
+  }
+]
 
+const stats = [
+  { label: 'Years Experience', value: '7+', icon: Calendar },
+  { label: 'Performance Impact', value: '5K+ RPS', icon: Briefcase },
+  { label: 'NPM Downloads', value: '12.8K+', icon: Download },
+  { label: 'Awards Won', value: '10+', icon: Award }
+]
 
 export default function Home() {
   return (
     <Layout>
-      <Avatar
-        src="/images/karan-raina.jpg"
-        edge={180}
-        alt="Karan Raina"
-      />
-      <ContactList contacts={socialList} />
-      <h1>Hey👋! I'm Karan Raina.</h1>
+      {/* Hero Section */}
+      <section id="hero" className="min-h-screen flex items-center justify-center relative px-4 sm:px-6">
+        <div className="container-custom text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.8,
+              type: "spring",
+              stiffness: 100
+            }}
+            className="mb-6 sm:mb-8"
+          >
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto mb-6 sm:mb-8">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-400 to-primary-600 animate-pulse"></div>
+              <div className="absolute inset-1 sm:inset-2 rounded-full overflow-hidden">
+                <Image
+                  src="/images/speaking.jpg"
+                  alt="Karan Raina"
+                  width={176}
+                  height={176}
+                  className="w-full h-full object-cover rounded-full"
+                  priority
+                />
+              </div>
+            </div>
+          </motion.div>
 
-      <p>A professional full-stack web developer from India 🇮🇳 with experience in building highly scalable and enterprise-level modern web applications.</p>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6">
+              Hey 👋! I'm{' '}
+              <span className="text-gradient block sm:inline mt-2 sm:mt-0">Karan Raina</span>
+            </h1>
 
-      <p>I love working with
-        <CustomLink href="https://nodejs.org/en/about/" label="Node.js" />,{' '}
-        <CustomLink href="https://reactjs.org/" label="React JS" />,{' '}
-        <CustomLink href="https://angular.io/start" label="Angular" />,{' '}
-        <CustomLink href="https://nextjs.org/" label="Next JS" />,{' '}
-        <CustomLink href="https://nestjs.com/" label="Nest JS" />{' '}
-        and everything <CustomLink href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" label="JavaScript" />.
-      </p>
+            <motion.p
+              className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-3 sm:mb-4 max-w-4xl mx-auto leading-relaxed px-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Senior Software Engineer at{' '}
+              <span className="text-red-500 font-semibold block sm:inline">Red Hat</span>{' '}
+              <span className="block sm:inline">| Data & AI Team</span>
+            </motion.p>
 
-      <p>I also love the moon, mountains and yemberzels. I have a keen interest in Military Aviation and Defence Forces.</p>
+            <motion.p
+              className="text-base sm:text-lg text-gray-400 mb-6 sm:mb-8 max-w-3xl mx-auto px-2 leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              Building enterprise AI solutions, MCP servers, and scalable web applications.
+              <span className="block sm:inline"> Award-winning full-stack developer passionate about performance engineering and open source.</span>
+            </motion.p>
+
+            <motion.div
+              className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-center sm:space-y-0 sm:space-x-4 mb-8 sm:mb-12 px-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <motion.a
+                href="#contact"
+                className="btn-primary w-full sm:w-auto text-center"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                Get In Touch
+              </motion.a>
+
+              <motion.a
+                href="#projects"
+                className="btn-secondary w-full sm:w-auto text-center"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Briefcase className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                View My Work
+              </motion.a>
+            </motion.div>
+
+            <div className="mb-8 sm:mb-12">
+              <SocialLinks size="md" />
+            </div>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mt-8 sm:mt-16 max-w-4xl mx-auto px-2"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+          >
+            {stats.map((stat, index) => (
+              <GlowCard key={stat.label} className="text-center p-3 sm:p-6">
+                <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-400 mx-auto mb-1 sm:mb-2" />
+                <div className="text-lg sm:text-2xl font-bold text-white mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-xs sm:text-sm text-gray-400 leading-tight">
+                  {stat.label}
+                </div>
+              </GlowCard>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-12 sm:py-20">
+        <div className="container-custom px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-8 sm:mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-gradient">About Me</h2>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-base sm:text-lg text-gray-300 mb-4 sm:mb-6 leading-relaxed px-2">
+                I'm a passionate full-stack web developer from India 🇮🇳 with{' '}
+                <span className="text-primary-400 font-semibold">7+ years of experience</span> building{' '}
+                <span className="text-primary-400 font-semibold">highly scalable</span> and{' '}
+                <span className="text-primary-400 font-semibold">enterprise-level modern web applications</span> that serve millions of users.
+              </p>
+
+              <p className="text-base sm:text-lg text-gray-300 mb-4 sm:mb-6 leading-relaxed px-2">
+                Currently at <span className="text-red-500 font-semibold">Red Hat</span>, I work in the{' '}
+                <span className="text-primary-400 font-semibold">Data and AI team</span> developing cutting-edge solutions including{' '}
+                <span className="text-green-400 font-semibold">AI agents</span> and{' '}
+                <span className="text-purple-400 font-semibold">Model Context Protocol (MCP) servers</span>. Previously, I led the{' '}
+                <span className="text-blue-400 font-semibold">Theme Engine team at Fynd (Reliance)</span>, where I architected a{' '}
+                <span className="text-yellow-400 font-semibold">high-performance React-based engine supporting 5K+ requests per second</span>.
+              </p>
+
+              <p className="text-base sm:text-lg text-gray-300 mb-4 sm:mb-6 leading-relaxed px-2">
+                My expertise spans{' '}
+                <span className="text-green-400 font-semibold">performance engineering</span>, having achieved{' '}
+                <span className="text-yellow-400 font-semibold">40% throughput improvements</span> and{' '}
+                <span className="text-purple-400 font-semibold">20% memory optimization</span> in production systems. I'm passionate about creating{' '}
+                <span className="text-blue-400 font-semibold">micro-frontends</span>,{' '}
+                <span className="text-green-400 font-semibold">microservices architecture</span>, and{' '}
+                <span className="text-red-400 font-semibold">developer tooling</span>.
+              </p>
+
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed px-2">
+                As an active{' '}
+                <span className="text-yellow-400 font-semibold">open-source contributor</span> with{' '}
+                <span className="text-primary-400 font-semibold">12.8K+ NPM downloads</span>, I've contributed to notable projects like{' '}
+                <span className="text-green-400 font-semibold">Fastify</span>,{' '}
+                <span className="text-blue-400 font-semibold">Pino</span>, and{' '}
+                <span className="text-purple-400 font-semibold">Autocannon</span>. I'm also passionate about military aviation ✈️, defense forces, space exploration 🌌, and mountains ⛰️.
+              </p>
+            </div>
+          </motion.div>
+
+          <TechStack />
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-12 sm:py-20">
+        <div className="container-custom px-4 sm:px-6">
+          <motion.h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-16 text-gradient"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Professional Experience
+          </motion.h2>
+
+          <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8">
+            {/* Red Hat Experience */}
+            <GlowCard>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">RH</span>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                    <h3 className="text-xl font-semibold text-white">Senior Software Engineer</h3>
+                    <span className="text-sm text-gray-400">February 2024 - Present</span>
+                  </div>
+                  <p className="text-lg text-red-400 mb-3">Red Hat | Data & AI Team</p>
+                  <div className="flex items-center text-gray-400 mb-4">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    <span>Remote, India</span>
+                  </div>
+                  <ul className="text-gray-300 space-y-2">
+                    <li>• Developing production-ready AI agent frameworks with streaming capabilities</li>
+                    <li>• Building Model Context Protocol (MCP) servers for enterprise integration</li>
+                    <li>• Contributing to Red Hat's open-source AI ecosystem</li>
+                    <li>• Creating scalable web applications for data and AI workflows</li>
+                    <li>• Working with Python, FastAPI, LangGraph, PostgreSQL, and Kubernetes</li>
+                  </ul>
+                </div>
+              </div>
+            </GlowCard>
+
+            {/* Fynd Experience */}
+            <GlowCard>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">FY</span>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                    <h3 className="text-xl font-semibold text-white">Software Development Engineer - 1 (Team Lead)</h3>
+                    <span className="text-sm text-gray-400">October 2022 - February 2024</span>
+                  </div>
+                  <p className="text-lg text-blue-400 mb-3">Fynd (Shopsense Retail Ltd) | Reliance Group</p>
+                  <div className="flex items-center text-gray-400 mb-4">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    <span>Ahmedabad, India</span>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-4 mb-4">
+                    <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-3">
+                      <div className="text-green-400 font-semibold text-sm">Performance Impact</div>
+                      <div className="text-white text-lg font-bold">5K+ RPS</div>
+                      <div className="text-gray-400 text-xs">Theme Engine Throughput</div>
+                    </div>
+                    <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-3">
+                      <div className="text-yellow-400 font-semibold text-sm">Optimization</div>
+                      <div className="text-white text-lg font-bold">40% ↑</div>
+                      <div className="text-gray-400 text-xs">Throughput Improvement</div>
+                    </div>
+                  </div>
+                  <ul className="text-gray-300 space-y-2">
+                    <li>• <strong>Led React team</strong> in architecting high-performance theme engine using Node.js, React 18, and Express</li>
+                    <li>• <strong>Increased throughput by 40%</strong> through Redis optimization and Head-of-Line blocking solutions</li>
+                    <li>• <strong>Reduced memory usage by 20%</strong> with advanced optimization techniques and leak prevention</li>
+                    <li>• <strong>Implemented micro-frontends</strong> to modularize codebase and enhance team autonomy</li>
+                    <li>• <strong>Developed CLI tool</strong> in Node.js for partner theme management on Fynd platform</li>
+                    <li>• <strong>Architected security measures</strong> protecting against XSS, CSRF, and SQL injection</li>
+                    <li>• <strong>Multiple awards</strong> including Fynd Innovator of the Year and Fynd Star Award</li>
+                  </ul>
+                </div>
+              </div>
+            </GlowCard>
+
+            {/* TCS Experience */}
+            <GlowCard>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">TCS</span>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                    <h3 className="text-xl font-semibold text-white">System Engineer</h3>
+                    <span className="text-sm text-gray-400">July 2018 - October 2022</span>
+                  </div>
+                  <p className="text-lg text-purple-400 mb-3">Tata Consultancy Services Ltd.</p>
+                  <div className="flex items-center text-gray-400 mb-4">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    <span>Gandhinagar, India</span>
+                  </div>
+                  <ul className="text-gray-300 space-y-2">
+                    <li>• <strong>Developed manufacturing pipeline automation</strong> features and enhancements</li>
+                    <li>• <strong>Built REST APIs</strong> and implemented PostgreSQL database interactions</li>
+                    <li>• <strong>Implemented security</strong> with role-based access and JWT authentication</li>
+                    <li>• <strong>Enhanced CI/CD pipelines</strong> using GitHub Actions and GitHub Advanced Security</li>
+                    <li>• <strong>Worked with ES6, Babel, Gulp</strong> and various JavaScript frameworks</li>
+                    <li>• <strong>6 Awards for Excellence</strong> recognition for outstanding contributions</li>
+                  </ul>
+                </div>
+              </div>
+            </GlowCard>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-12 sm:py-20">
+        <div className="container-custom px-4 sm:px-6">
+          <motion.h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-16 text-gradient"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Featured Projects
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            {featuredProjects.map((project, index) => (
+              <ProjectCard key={project.title} project={project} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Awards Section */}
+      <section id="awards" className="py-12 sm:py-20">
+        <div className="container-custom px-4 sm:px-6">
+          <motion.h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-16 text-gradient"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Awards & Recognition
+          </motion.h2>
+
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+            {/* Fynd Awards */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <GlowCard>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Award className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2">Fynd Innovator of the Year</h3>
+                  <p className="text-blue-400 font-medium mb-3">Fynd (Reliance) • 2023</p>
+                  <p className="text-gray-300 text-sm">
+                    Recognition for enhancing performance and stability in the React Theme Engine,
+                    achieving 5K+ RPS and 40% throughput improvement.
+                  </p>
+                </div>
+              </GlowCard>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <GlowCard>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Award className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2">Fynd Star Award</h3>
+                  <p className="text-yellow-400 font-medium mb-3">Fynd (Reliance) • 2023</p>
+                  <p className="text-gray-300 text-sm">
+                    Awarded for taking complete ownership of React Theme Engine and
+                    delivering exceptional results in team leadership.
+                  </p>
+                </div>
+              </GlowCard>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="md:col-span-2"
+            >
+              <GlowCard>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Award className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2">6x Awards for Excellence</h3>
+                  <p className="text-purple-400 font-medium mb-3">Tata Consultancy Services • 2018-2022</p>
+                  <p className="text-gray-300 text-sm">
+                    Multiple recognitions for outstanding contributions in manufacturing pipeline automation,
+                    API development, and security implementations during 4+ years at TCS.
+                  </p>
+                </div>
+              </GlowCard>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20">
+        <div className="container-custom">
+          <motion.div
+            className="text-center max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="heading-lg mb-6 text-gradient">Let's Connect!</h2>
+            <p className="text-lg text-gray-300 mb-12">
+              I'm always open to discussing new opportunities, collaborating on interesting projects,
+              or just having a chat about technology and innovation.
+            </p>
+
+            <div className="space-y-6">
+              <div className="flex items-center justify-center space-x-2 text-lg">
+                <Mail className="w-5 h-5 text-primary-400" />
+                <a
+                  href="mailto:karanraina1996@gmail.com"
+                  className="text-primary-400 hover:text-primary-300 transition-colors duration-300"
+                >
+                  karanraina1996@gmail.com
+                </a>
+              </div>
+
+              <SocialLinks showLabels size="md" />
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </Layout>
-  );
+  )
 }
