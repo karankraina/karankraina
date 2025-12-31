@@ -1,34 +1,28 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import {
-  Github,
-  Linkedin,
-  Twitter,
-  Mail,
-  FileText,
-  ExternalLink
-} from 'lucide-react'
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { Mail, FileText, ExternalLink } from 'lucide-react'
 
 const socialLinks = [
   {
     name: 'GitHub',
     url: 'https://github.com/karankraina',
-    icon: Github,
+    icon: FaGithub,
     color: 'hover:text-gray-200',
     bgColor: 'hover:bg-gray-800'
   },
   {
     name: 'LinkedIn',
     url: 'https://linkedin.com/in/karankraina',
-    icon: Linkedin,
+    icon: FaLinkedin,
     color: 'hover:text-blue-400',
     bgColor: 'hover:bg-blue-500/20'
   },
   {
     name: 'Twitter',
     url: 'https://twitter.com/karankraina',
-    icon: Twitter,
+    icon: FaTwitter,
     color: 'hover:text-sky-400',
     bgColor: 'hover:bg-sky-500/20'
   },
@@ -40,8 +34,8 @@ const socialLinks = [
     bgColor: 'hover:bg-red-500/20'
   },
   {
-    name: 'Blog',
-    url: 'https://karankraina.hashnode.dev/',
+    name: 'async by Karan',
+    url: 'https://blogs.karanraina.com/',
     icon: FileText,
     color: 'hover:text-green-400',
     bgColor: 'hover:bg-green-500/20'

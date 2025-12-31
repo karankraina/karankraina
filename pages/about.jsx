@@ -10,7 +10,7 @@ export default function About() {
   return (
     <Layout>
       <Avatar
-        src="/images/karan-raina.jpg"
+        src="/images/karan-raina.jpeg"
         edge={150}
         alt="Karan Raina"
       />

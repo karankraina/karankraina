@@ -1,0 +1,20 @@
+{
+  "name": "Karan Raina - Senior Software Engineer",
+  "short_name": "Karan Raina",
+  "icons": [
+    {
+      "src": "/images/karan-raina.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/images/karan-raina.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "theme_color": "#0f172a",
+  "background_color": "#0f172a",
+  "display": "standalone"
+}
+
