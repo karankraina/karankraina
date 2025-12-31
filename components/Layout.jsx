@@ -172,30 +172,30 @@ export default function Layout({ children, title = "Karan Raina - Senior Softwar
           <AnimatePresence>
             {isMobileMenuOpen && (
               <motion.div
-                className="md:hidden bg-slate-900/95 backdrop-blur-xl border-b border-slate-800"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
+                className="md:hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-xl border-b border-slate-800 z-40"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="container-custom py-4 space-y-3">
+                <div className="container-custom py-6 space-y-1">
                   <a
                     href="#about"
-                    className="block text-gray-400 hover:text-white transition-colors py-2"
+                    className="block text-gray-400 hover:text-white transition-colors py-3 px-4 rounded-lg hover:bg-slate-800"
                     onClick={closeMobileMenu}
                   >
                     About
                   </a>
                   <a
                     href="#experience"
-                    className="block text-gray-400 hover:text-white transition-colors py-2"
+                    className="block text-gray-400 hover:text-white transition-colors py-3 px-4 rounded-lg hover:bg-slate-800"
                     onClick={closeMobileMenu}
                   >
                     Experience
                   </a>
                   <a
                     href="#projects"
-                    className="block text-gray-400 hover:text-white transition-colors py-2"
+                    className="block text-gray-400 hover:text-white transition-colors py-3 px-4 rounded-lg hover:bg-slate-800"
                     onClick={closeMobileMenu}
                   >
                     Projects
@@ -204,13 +204,14 @@ export default function Layout({ children, title = "Karan Raina - Senior Softwar
                     href="https://blogs.karanraina.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-gray-400 hover:text-white transition-colors py-2"
+                    className="block text-gray-400 hover:text-white transition-colors py-3 px-4 rounded-lg hover:bg-slate-800"
+                    onClick={closeMobileMenu}
                   >
                     Blog
                   </a>
                   <a
                     href="#contact"
-                    className="block text-gray-400 hover:text-white transition-colors py-2"
+                    className="block text-gray-400 hover:text-white transition-colors py-3 px-4 rounded-lg hover:bg-slate-800"
                     onClick={closeMobileMenu}
                   >
                     Contact
