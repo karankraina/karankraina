@@ -160,7 +160,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-xl md:text-2xl text-gray-400 mb-4"
             >
-              Senior Software Engineer at <span className="text-red-500 font-semibold">Red Hat</span>
+              Principal Software Engineer at <span className="text-red-500 font-semibold">Red Hat</span>
             </motion.p>
 
             <motion.p
@@ -263,81 +263,6 @@ export default function Home() {
           </motion.div>
 
           <TechStack />
-        </div>
-      </section>
-
-      {/* Experience Section - Clean Timeline */}
-      <section id="experience" className="py-20 border-t border-slate-800">
-        <div className="container-custom">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold text-center mb-16 text-white"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            Experience
-          </motion.h2>
-
-          <div className="max-w-4xl mx-auto space-y-12">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={exp.company}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <GlowCard>
-                  <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 ${exp.logoColor} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                      <span className="text-white font-bold text-sm">{exp.logo}</span>
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                        <h3 className="text-xl font-semibold text-white">{exp.role}</h3>
-                        <span className="text-sm text-gray-500">{exp.period}</span>
-                      </div>
-                      <p className="text-lg text-gray-300 mb-1">{exp.company}</p>
-                      {exp.team && (
-                        <p className="text-sm text-gray-500 mb-3">{exp.team}</p>
-                      )}
-                      <div className="flex items-center text-gray-500 text-sm mb-4">
-                        <MapPin className="w-4 h-4 mr-2" />
-                        <span>{exp.location}</span>
-                      </div>
-                      
-                      {exp.achievements && (
-                        <div className="grid grid-cols-3 gap-4 mb-4">
-                          <div className="bg-green-500/5 border border-green-500/20 rounded-lg p-3">
-                            <div className="text-green-400 text-xs font-medium">Performance</div>
-                            <div className="text-white text-lg font-bold">{exp.achievements.performance}</div>
-                          </div>
-                          <div className="bg-blue-500/5 border border-blue-500/20 rounded-lg p-3">
-                            <div className="text-blue-400 text-xs font-medium">Throughput</div>
-                            <div className="text-white text-lg font-bold">{exp.achievements.optimization}</div>
-                          </div>
-                          <div className="bg-purple-500/5 border border-purple-500/20 rounded-lg p-3">
-                            <div className="text-purple-400 text-xs font-medium">Memory</div>
-                            <div className="text-white text-lg font-bold">{exp.achievements.memory}</div>
-                          </div>
-                        </div>
-                      )}
-
-                      <ul className="text-gray-400 space-y-2">
-                        {exp.highlights.map((highlight, i) => (
-                          <li key={i} className="flex items-start">
-                            <span className="text-blue-500 mr-2">•</span>
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </GlowCard>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
