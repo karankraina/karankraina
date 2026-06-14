@@ -2,7 +2,7 @@
 
 # Karan Raina
 
-### Senior Software Engineer @ Red Hat | Data & AI Team
+### Principal Software Engineer @ Red Hat | Data & AI Team
 ### Full-Stack Developer | Open Source Contributor | Performance Engineering Expert
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/karankraina)
@@ -33,7 +33,7 @@ I'm a passionate **full-stack web developer** from India 🇮🇳 with expertise
 ## 🏢 Professional Experience
 
 ### Red Hat | Data & AI Team
-**Senior Software Engineer** | *February 2024 - Present*
+**Principal Software Engineer** | *February 2024 - Present*
 
 Working on enterprise AI initiatives and open-source projects:
 - Developing production-ready **AI agent frameworks** with streaming capabilities
